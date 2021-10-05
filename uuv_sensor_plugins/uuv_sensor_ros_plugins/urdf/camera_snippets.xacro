@@ -132,6 +132,7 @@
           </noise>
         </camera>
         <plugin name="camera${suffix}_controller" filename="libgazebo_ros_camera.so">
+          <!-- <alwaysOn>true</alwaysOn> -->
           <updateRate>${update_rate}</updateRate>
           <cameraName>${namespace}/camera${suffix}</cameraName>
           <frameName>camera${suffix}_link_optical</frameName>

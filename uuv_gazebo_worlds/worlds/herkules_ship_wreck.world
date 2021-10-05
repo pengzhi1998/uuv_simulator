@@ -39,7 +39,7 @@
       <fog>
         <color>0.1 0.2 0.3 1.0</color>
         <type>linear</type>
-        <density>0.1</density>
+        <density>0.5</density>
         <start>10</start>
         <end>40</end>
       </fog>
@@ -82,12 +82,12 @@
     <!-- Seabed terrain around Munkholmen model -->
     <include>
       <uri>model://herkules_seabed</uri>
-      <pose>0 0 0 0 0 0</pose>
+      <pose>0 0 60 0 0 0</pose>
     </include>
 
     <include>
       <uri>model://herkules_ship_wreck</uri>
-      <pose>0 0 -60 0 0 1.57</pose>
+      <pose>0 0 0 0 0 1.57</pose>
     </include>
     
     <plugin name="underwater_current_plugin" filename="libuuv_underwater_current_ros_plugin.so">

@@ -4,7 +4,7 @@
   <!-- Name of the vehicle model -->
   <arg name="model_name" default="$(arg uuv_name)"/>
   <!-- Thruster saturation -->
-  <arg name="saturation" default="1200"/>
+  <arg name="saturation" default="5000"/>
   <!-- Flag to start the trajectory visual markers publisher -->
   <arg name="gui_on" default="true"/>
   <!-- Flag set as true to use load controller the parameters from the file  -->

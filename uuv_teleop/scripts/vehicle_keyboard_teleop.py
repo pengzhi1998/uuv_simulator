@@ -32,9 +32,9 @@ class KeyBoardVehicleTeleop:
         self.l = Vector3(0, 0, 0) # Linear Velocity for Publish
         self.a = Vector3(0, 0, 0) # Angular Velocity for publishing
         self.linear_increment = 0.05 # How much to increment linear velocities by, to avoid jerkyness
-        self.linear_limit = 1 # Linear velocity limit = self.linear_limit * self.speed
+        self.linear_limit = 0.2 # Linear velocity limit = self.linear_limit * self.speed
         self.angular_increment = 0.05
-        self.angular_limit = 0.5
+        self.angular_limit = 0.25
         # User Interface
         self.msg = """
     Control Your Vehicle!
@@ -63,6 +63,7 @@ class KeyBoardVehicleTeleop:
         # Name Publisher topics accordingly
         if self._msg_type == 'twist':
             self._output_pub = rospy.Publisher('output', Twist, queue_size=1)
+            # self._output_pub = rospy.Publisher('/rexrov2/cmd_vel', Twist, queue_size=1)
         else:
             self._output_pub = rospy.Publisher('output', Accel, queue_size=1)
 
@@ -134,10 +135,10 @@ class KeyBoardVehicleTeleop:
                 self.l.y = self._speed_windup(self.l.y, self.linear_increment, self.linear_limit, True)
             # Up
             if key_press == "x":
-                self.l.z = self._speed_windup(self.l.z, self.linear_increment, self.linear_limit*0.5, False)
+                self.l.z = self._speed_windup(self.l.z, self.linear_increment, self.linear_limit, False)
             # Down
             if key_press == "z":
-                self.l.z = self._speed_windup(self.l.z, self.linear_increment, self.linear_limit*0.5, True)
+                self.l.z = self._speed_windup(self.l.z, self.linear_increment, self.linear_limit, True)
 
             # Angular Velocities
             # Roll Left
@@ -154,10 +155,10 @@ class KeyBoardVehicleTeleop:
                 self.a.y = self._speed_windup(self.a.y, self.linear_increment, self.linear_limit, True)
             # Yaw Left
             if key_press == "q":
-                self.a.z = self._speed_windup(self.a.z, self.linear_increment, self.linear_limit, False)
+                self.a.z = self._speed_windup(self.a.z, self.angular_increment, self.angular_limit, False)
             # Yaw Right
             if key_press == "e":
-                self.a.z = self._speed_windup(self.a.z, self.linear_increment, self.linear_limit, True)
+                self.a.z = self._speed_windup(self.a.z, self.angular_increment, self.angular_limit, True)
 
         else:
             # If no button is pressed reset velocities to 0

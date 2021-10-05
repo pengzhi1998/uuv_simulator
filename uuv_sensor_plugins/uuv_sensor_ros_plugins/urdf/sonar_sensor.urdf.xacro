@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="sonar_sensor" params="name parent *origin ros_topic update_rate min_range max_range field_of_view ray_count">
+  <xacro:macro name="sonar_sensor" params="name parent_link *origin ros_topic update_rate min_range max_range field_of_view ray_count">
     <joint name="${name}_joint" type="fixed">
       <xacro:insert_block name="origin" />
-      <parent link="${parent}"/>
+      <parent link="${parent_link}"/>
       <child link="${name}_link"/>
     </joint>
 
@@ -18,7 +18,7 @@
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <!--<box size="0.01 0.01 0.01" /> -->
-          <mesh filename="package://hector_sensors_description/meshes/sonar_sensor/max_sonar_ez4.dae"/>
+          <mesh filename="file://$(find uuv_sensor_ros_plugins)/meshes/sonar_sensor/max_sonar_ez4.dae"/>
         </geometry>
       </visual>
       <collision>

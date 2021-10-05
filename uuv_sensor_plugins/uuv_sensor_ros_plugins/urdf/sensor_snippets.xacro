@@ -27,4 +27,9 @@
   <xacro:include filename="$(find uuv_sensor_ros_plugins)/urdf/gps_sensor_snippets.xacro" />
   <xacro:include filename="$(find uuv_sensor_ros_plugins)/urdf/pose_3d_snippets.xacro" />
   <xacro:include filename="$(find uuv_sensor_ros_plugins)/urdf/chemical_concentration_snippets.xacro"/>
+  <xacro:include filename="$(find uuv_sensor_ros_plugins)/urdf/sonar_sensor.urdf.xacro"/>
+<!--  <xacro:include filename="$(find uuv_sensor_ros_plugins)/urdf/kinect_v2.urdf.xacro"/>-->
+  <xacro:include filename="$(find uuv_sensor_ros_plugins)/urdf/camera.urdf.xacro"/>
+<!--  <xacro:include filename="$(find uuv_sensor_ros_plugins)/urdf/kinect.urdf.xacro"/>-->
+
 </robot>

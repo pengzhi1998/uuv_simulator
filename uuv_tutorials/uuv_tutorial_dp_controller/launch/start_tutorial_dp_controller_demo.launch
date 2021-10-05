@@ -20,7 +20,7 @@
         <arg name="model_name" value="rexrov"/>
     </include>
 
-    <!-- Start the recording node  -->
+    <!-- Start the recording node -->
     <include file="$(find uuv_gazebo)/launch/controller_demos/record_demo.launch">
       <arg name="record" value="$(arg record)"/>
     </include>
